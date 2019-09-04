@@ -1,31 +1,52 @@
 <template>
   <div id="app">
-    <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
+    <Header></Header>
+    <div class="main">
+      <Postlist></Postlist>
     </div>
-    <router-view/>
   </div>
 </template>
 
+<script>
+import Header from './components/Header'
+import Postlist from './components/Postlist'
+export default {
+  name: 'App',
+  components: {
+    Header,
+    Postlist
+  }
+}
+</script>
 <style>
-#app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
+@import url(./normalize.css);
+@import url(//at.alicdn.com/t/font_1297651_a6il7yh8saq.css);
+a {
+  text-decoration: none;
+  color: black;
 }
-#nav {
-  padding: 30px;
+ul {
+  list-style: none;
 }
+.clearfix::after {
+  content: "";
+  display: block;
+  clear: both;
+}
+body {
+  background-color: #e1e1e1;
+}
+.main {
+  margin: 0 auto;
+  max-width: 960px;
+}
+@keyframes rotate {
+  0% {
+    transform: rotate(0deg);
+  }
 
-#nav a {
-  font-weight: bold;
-  color: #2c3e50;
-}
-
-#nav a.router-link-exact-active {
-  color: #42b983;
+  100% {
+    transform: rotate(360deg);
+  }
 }
 </style>
