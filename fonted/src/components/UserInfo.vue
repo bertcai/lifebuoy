@@ -20,7 +20,7 @@
         <div class="header">最近创建的话题</div>
         <div class="item" v-for="item in userInfo.recent_topics" :key="item.id">
           <img :src="item.author.avatar_url" />
-          <router-link :to="{name:'article', params:{id:item.id}}">
+          <router-link :to="{name:'article', params:{id:item.id,author:item.author.loginname}}">
             <span class="title">{{item.title}}</span>
           </router-link>
           <span class="last-time">{{item.last_reply_at | formatTime}}</span>
@@ -32,7 +32,7 @@
           <router-link :to="{name:'userInfo', params:{id:item.author.loginname}}">
             <img :src="item.author.avatar_url" />
           </router-link>
-          <router-link :to="{name:'article', params:{id:item.id}}">
+          <router-link :to="{name:'article', params:{id:item.id,author:item.author.loginname}}">
             <span class="title">{{item.title}}</span>
           </router-link>
           <span class="last-time">{{item.last_reply_at | formatTime}}</span>

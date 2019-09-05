@@ -68,6 +68,12 @@ export default {
   beforeMount () {
     this.isLoading = true
     this.getArticle()
+  },
+  watch: {
+    $route: function () {
+      this.isLoading = true
+      this.getArticle()
+    }
   }
 }
 </script>

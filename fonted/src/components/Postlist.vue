@@ -22,7 +22,7 @@
             <span
               :class="[{top:(item.top===true),good:(item.good===true),cate:true}]"
             >{{item.tab | formatTab(item.top,item.good)}}</span>
-            <router-link :to="{name:'article', params:{id:item.id}}">
+            <router-link :to="{name:'article', params:{id:item.id,author:item.author.loginname}}">
               <span class="title">{{item.title}}</span>
             </router-link>
           </div>
@@ -67,6 +67,7 @@ export default {
     }
   },
   beforeMount () {
+    this.isLoading = true
     this.getItemlist()
   }
 }
