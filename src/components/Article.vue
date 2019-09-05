@@ -6,7 +6,9 @@
         <h2 class="title">{{article.title}}</h2>
         <div class="desc">
           <span>发布于 {{article.create_at | formatTime}}</span>
-          <span>作者 {{article.author.loginname}}</span>
+          <router-link :to="{name: 'userInfo',params:{id:article.author.loginname}}">
+            <span class="author">作者 {{article.author.loginname}}</span>
+          </router-link>
           <span>{{article.visit_count}} 次浏览</span>
           <span>来自 {{article.tab | formatTab}}</span>
         </div>
@@ -17,11 +19,11 @@
       <div class="reply-header">{{article.reply_count}} 回复</div>
       <div class="reply-content">
         <div v-for="(item,index) in article.replies" :key="item.id" class="reply-item">
-          <router-link :to="{name:'userInfo'}">
+          <router-link :to="{name:'userInfo',params:{id:item.author.loginname}}">
             <img class="avatar" :src="item.author.avatar_url" />
           </router-link>
           <div class="user-info">
-            <router-link :to="{name:'userInfo'}">
+            <router-link :to="{name:'userInfo',params:{id:item.author.loginname}}">
               <span class="reply-author">{{item.author.loginname}}</span>
             </router-link>
             <div class="reply-desc">{{index+1}}楼 • {{item.create_at | formatTime}}</div>
@@ -95,6 +97,13 @@ export default {
       .desc {
         color: #838383;
         font-size: 10px;
+        .author {
+          color: #838383;
+        }
+        .author:hover {
+          color: #444;
+          text-decoration: underline;
+        }
         span::before {
           content: " • ";
         }

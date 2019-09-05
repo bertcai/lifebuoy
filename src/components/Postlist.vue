@@ -1,6 +1,6 @@
 <template>
   <div class="box">
-    <div class="post">
+    <div class="post" v-if="!isLoading">
       <div class="tab-bar">
         <a href="#" class="active">全部</a>
         <a href="#">精华</a>
@@ -11,7 +11,9 @@
       </div>
       <ul>
         <li v-for="item in itemlist" :key="item.id" class="clearfix">
-          <img :src="item.author.avatar_url" class="avatar" />
+          <router-link :to="{name: 'userInfo',params:{id:item.author.loginname}}">
+            <img :src="item.author.avatar_url" class="avatar" />
+          </router-link>
           <span class="count-wrap">
             <span class="reply-count">{{item.reply_count}}</span>/
             <span class="visit-count">{{item.visit_count}}</span>
@@ -162,7 +164,7 @@ export default {
         color: #333;
       }
       .title:hover {
-        text-decoration:underline;
+        text-decoration: underline;
       }
       .title:visited {
         color: #888;

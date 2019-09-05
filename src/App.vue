@@ -4,6 +4,7 @@
     <div class="main">
       <router-view></router-view>
     </div>
+    <div class="footer"></div>
   </div>
 </template>
 
@@ -20,6 +21,10 @@ export default {
 @import url(./assets/normalize.css);
 @import url(//at.alicdn.com/t/font_1297651_09rqyrgldf0w.css);
 @import url(./assets/markdown-github.css);
+.footer{
+  height: 100px;
+  width: 100%;
+}
 a {
   text-decoration: none;
   color: black;

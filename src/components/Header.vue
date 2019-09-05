@@ -1,28 +1,40 @@
 <template>
   <div class="nav">
     <div class="wrap clearfix">
-      <a class="logo">
+      <router-link :to="{name:'home'}" class="logo">
         <img src="https://static2.cnodejs.org/public/images/cnodejs_light.svg" />
-      </a>
+      </router-link>
       <ul>
-        <li class="active">
-          <a href="#">首页</a>
-        </li>
-        <!-- <li><a href="#">未读消息</a></li> -->
         <li>
-          <a href="#">新手入门</a>
+          <router-link :to="{name:'home'}" class="active">
+            <span>首页</span>
+          </router-link>
         </li>
+        <!-- <li><span href="#">未读消息</span></li> -->
         <li>
-          <a href="#">API</a>
-        </li>
-        <li>
-          <a href="#">关于</a>
+          <router-link :to="{name:'home'}" class="">
+            <span href="#">新手入门</span>
+          </router-link>
         </li>
         <li>
-          <a href="#">注册</a>
+          <router-link :to="{name:'home'}" class="">
+            <span href="#">API</span>
+          </router-link>
         </li>
         <li>
-          <a href="#">登陆</a>
+          <router-link :to="{name:'home'}" class="">
+            <span href="#">关于</span>
+          </router-link>
+        </li>
+        <li>
+          <router-link :to="{name:'home'}" class="">
+            <span href="#">注册</span>
+          </router-link>
+        </li>
+        <li>
+          <router-link :to="{name:'home'}" class="">
+            <span href="#">登陆</span>
+          </router-link>
         </li>
       </ul>
     </div>
@@ -60,16 +72,16 @@ export default {
         display: inline-block;
         height: 40px;
         line-height: 40px;
-        a {
+        span {
           font-size: 14px;
           color: #ccc;
         }
-        a:hover {
+        span:hover {
           color: #fff;
         }
       }
       .active {
-        a {
+        span {
           color: #fff;
         }
       }
