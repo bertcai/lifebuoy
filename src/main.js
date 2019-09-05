@@ -14,7 +14,7 @@ Vue.filter('formatTime', function (value) {
   let nowTime = Date.now()
   // console.log(nowTime)
   let duration = (nowTime - lastTime) / 1000
-  console.log(duration)
+  // console.log(duration)
   switch (true) {
     case duration < 30: {
       return '刚刚'
@@ -44,7 +44,7 @@ Vue.filter('formatTab', function (value, top, good) {
   if (top) return '置顶'
   if (good) return '精华'
   switch (value) {
-    case '­share':
+    case 'share':
       return '分享'
     case 'ask':
       return '问答'

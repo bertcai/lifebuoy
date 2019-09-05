@@ -20,7 +20,9 @@
             <span
               :class="[{top:(item.top===true),good:(item.good===true),cate:true}]"
             >{{item.tab | formatTab(item.top,item.good)}}</span>
-            <a class="title" href="#">{{item.title}}</a>
+            <router-link :to="{name:'article', params:{id:item.id}}">
+              <span class="title">{{item.title}}</span>
+            </router-link>
           </div>
           <span class="last-time">{{item.last_reply_at | formatTime}}</span>
         </li>
@@ -49,7 +51,7 @@ export default {
         .get('/topics', {
           params: {
             page: 1,
-            limit: 5
+            limit: 10
           }
         })
         .then(res => {
@@ -62,7 +64,7 @@ export default {
         })
     }
   },
-  mounted () {
+  beforeMount () {
     this.getItemlist()
   }
 }
@@ -158,6 +160,9 @@ export default {
       .title {
         font-size: 12px;
         color: #333;
+      }
+      .title:hover {
+        text-decoration:underline;
       }
       .title:visited {
         color: #888;

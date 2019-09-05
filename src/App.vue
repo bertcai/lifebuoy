@@ -2,25 +2,24 @@
   <div id="app">
     <Header></Header>
     <div class="main">
-      <Postlist></Postlist>
+      <router-view></router-view>
     </div>
   </div>
 </template>
 
 <script>
 import Header from './components/Header'
-import Postlist from './components/Postlist'
 export default {
   name: 'App',
   components: {
-    Header,
-    Postlist
+    Header
   }
 }
 </script>
 <style>
-@import url(./normalize.css);
-@import url(//at.alicdn.com/t/font_1297651_a6il7yh8saq.css);
+@import url(./assets/normalize.css);
+@import url(//at.alicdn.com/t/font_1297651_09rqyrgldf0w.css);
+@import url(./assets/markdown-github.css);
 a {
   text-decoration: none;
   color: black;
@@ -35,6 +34,8 @@ ul {
 }
 body {
   background-color: #e1e1e1;
+  font-family: "Helvetica Neue", "Luxi Sans", "DejaVu Sans", Tahoma,
+    "Hiragino Sans GB", STHeiti, sans-serif !important;
 }
 .main {
   margin: 0 auto;
