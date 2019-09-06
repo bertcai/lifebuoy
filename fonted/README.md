@@ -13,7 +13,7 @@
     + [x] UserInfo 组件
     + [x] SideBar 组件
     + [x] Pagination 组件
-    > 仿照CNODE的大体页面已经构建完毕，预览链接：
+    > 仿照CNODE的大体页面已经构建完毕，预览链接：[https://bertcai.github.io/lifebuoy](https://bertcai.github.io/lifebuoy)
 - [ ] 改造网站，添加**21世纪的救生圈**的特有UI设计和组件功能
 - [ ] 实现**21世纪的救生圈**后台部分
 - [ ] 产品上线测试，根据用户反馈进行后续优化......
