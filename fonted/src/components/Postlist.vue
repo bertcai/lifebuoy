@@ -22,38 +22,43 @@
             <span
               :class="[{top:(item.top===true),good:(item.good===true),cate:true}]"
             >{{item.tab | formatTab(item.top,item.good)}}</span>
-            <router-link :to="{name:'article', params:{id:item.id}}">
+            <router-link :to="{name:'article', params:{id:item.id,author:item.author.loginname}}">
               <span class="title">{{item.title}}</span>
             </router-link>
           </div>
           <span class="last-time">{{item.last_reply_at | formatTime}}</span>
         </li>
       </ul>
-      <div class="loading" v-if="isLoading">
-        <i class="iconfont icon-loading"></i>
-      </div>
     </div>
+    <div class="loading" v-if="isLoading">
+      <i class="iconfont icon-loading"></i>
+    </div>
+    <Pagination @page-change="handlePageChange"></Pagination>
   </div>
 </template>
 
 <script>
+import Pagination from './Pagination'
 export default {
   name: 'Postlist',
   data () {
     return {
       isLoading: false,
-      itemlist: []
+      itemlist: [],
+      page: 1
     }
   },
-  computed: {},
+  components: {
+    Pagination
+  },
   methods: {
     getItemlist () {
       this.isLoading = true
       this.$http
         .get('/topics', {
           params: {
-            page: 1,
-            limit: 10
+            page: this.page,
+            limit: 20
           }
         })
         .then(res => {
@@ -64,9 +69,15 @@ export default {
         .catch(err => {
           console.log(err)
         })
+    },
+    handlePageChange (value) {
+      this.page = value
+      console.log(this.page)
+      this.getItemlist()
     }
   },
   beforeMount () {
+    this.isLoading = true
     this.getItemlist()
   }
 }
