@@ -2,12 +2,12 @@
   <div id="app">
     <Header></Header>
     <div class="main-home">
-      <div class="main">
-        <router-view name="main"></router-view>
-      </div>
-      <div class="side">
+      <!-- <div class="main"> -->
+        <router-view name="main" class="main"></router-view>
+      <!-- </div> -->
+      <!-- <div class="side"> -->
         <router-view name="sidebar" class="side"></router-view>
-      </div>
+      <!-- </div> -->
     </div>
     <div class="footer"></div>
   </div>
@@ -51,14 +51,17 @@ body {
   width: 90%;
   margin: 0 auto;
   display: flex;
-  justify-content: space-between;
+  // justify-content: space-between;
   .main {
-    flex: auto;
-    margin-right: 20px;
+    flex:1;
+    overflow: hidden;
+    // flex-basis: 70%;
   }
   .side {
     // flex: auto;
+    margin-left: 20px;
     // // min-width: 300px;
+    flex-basis: 30%;
   }
 }
 @keyframes rotate {
