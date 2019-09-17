@@ -4,10 +4,12 @@ import Postlist from './components/Postlist'
 import Article from './components/Article'
 import UserInfo from './components/UserInfo'
 import SideBar from './components/SideBar'
+import ErrorPage from './views/Error'
 
 Vue.use(Router)
 
 export default new Router({
+  mode: 'history',
   routes: [{
     path: '/',
     name: 'home',
@@ -29,6 +31,16 @@ export default new Router({
     components: {
       main: UserInfo
     }
+  },
+  {
+    path: '/404',
+    components: {
+      main: ErrorPage
+    }
+  },
+  {
+    path: '*',
+    redirect: '/404'
   }
   ]
 })
